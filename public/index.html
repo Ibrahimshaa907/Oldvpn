@@ -1,1 +1,24 @@
-a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScraperAPI VPN Proxy</title>
+</head>
+<body>
+  <h2>Enter Website URL</h2>
+  <input type="text" id="urlInput" placeholder="e.g., https://httpbin.org/ip" style="width: 300px;" />
+  <button onclick="go()">Browse with new IP</button>
+
+  <script>
+    function go() {
+      const url = document.getElementById("urlInput").value.trim();
+      if (!url) return alert("Please enter a URL");
+
+      const encoded = encodeURIComponent(url);
+      const goUrl = `/go?url=${encoded}`;
+      window.open(goUrl, "_blank"); // Open in new tab
+    }
+  </script>
+</body>
+</html>
